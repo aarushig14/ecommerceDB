@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        {{#each cart as |item|}}
+            <div>
+                <img src="{{item.imgsrc}}">
+                <h6>{{item.name}}</h6>
+                <h6>{{item.qty}}</h6>
+                <h6>Price : {{item.price}} x {{item.qty}}</h6>
+            </div>
+        {{/each}}
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            var a = document.getElementsByName('addtocart');
+
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        <form action="/showcart" method="post">
+            <input type="submit" value="Show Cart" name="cart">
+        </form>
+    </div>
+
+    <div class="container">
+        {{#each prod as |pdt|}}
+         <div>
+            <img src="{{pdt.imgsrc}}">
+            <h1 >{{pdt.name}}</h1>
+            <h4>PRICE : {{pdt.price}}</h4>
+             <form action="/addToCart" method="post">
+                <input id="{{pdt.id}}" type="submit" value="AddToCart" name="addtocart" onclick="change(this)">
+             </form>
+             <div name = "qty"></div>
+         </div>
+        {{/each}}
+
+    </div>
+
+</body>
+</html>
