@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.2.0.js"></script>
+    <script src="client.js"></script>
     <script>
         window.onload = function () {
             var a = document.getElementsByName('addtocart');
@@ -12,22 +15,19 @@
 </head>
 <body>
 
-    <div>
-        <form action="/showcart" method="post">
-            <input type="submit" value="Show Cart" name="cart">
+    <div class="cart">
+        <form action="/showcart" method="get">
+            <input type="submit" value="Show Cart" id="showcart">
         </form>
     </div>
 
     <div class="container">
         {{#each prod as |pdt|}}
-         <div>
-            <img src="{{pdt.imgsrc}}">
-            <h1 >{{pdt.name}}</h1>
-            <h4>PRICE : {{pdt.price}}</h4>
-             <form action="/addToCart" method="post">
-                <input id="{{pdt.id}}" type="submit" value="AddToCart" name="addtocart" onclick="change(this)">
-             </form>
-             <div name = "qty"></div>
+         <div class="item">
+             <img src="{{pdt.imgsrc}}">
+             <h1>{{pdt.name}}</h1>
+             <h4>PRICE : {{pdt.price}}</h4>
+             <input class="submitbtn" id="{{pdt.id}}" type="submit" value="AddToCart" name="addtocart" onclick="change(this)">
          </div>
         {{/each}}
 

@@ -25,14 +25,15 @@ app.get('/',(req,res)=>{
 });
 
 app.post('/addToCart',(req,res)=> {
-    console.log(req);
-    db.addToCart(req.body.addtocart.id,function (result) {
+    console.log(req.body);
+    db.addToCart(req.body.id,function (result) {
+        console.log(result);
         res.redirect('/');
     })
 });
 
 app.get('/showcart',(req,res)=>{
-    db.showcart(function (cart) {
+    db.showcart(function (cart){
         res.render('cart',{cart:cart});
     })
 })
